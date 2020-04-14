@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Npgsql;
 using Final_poo_Espejo_Ramirez_Rincon.Views;
 
-namespace Final_poo_Espejo_Ramirez_Rincon.Models
+namespace Final_poo_Espejo_Ramirez_Rincon.Controllers
 {
     public class clsLogin : clsModel
       //hacemos la herencia desde la clase clsmodel
@@ -55,16 +55,16 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Models
 
 
         //Funcion para iniciar seccion 
-        public static void TryLogin(string user, string password,TextBox id)
+        public void TryLogin(string user, string password,TextBox id)
         {
              
             
             try
             {
-                cone.Open(); //Abrir la conexion entre el programa y la base de datos 
+                Db.Connection.Open(); //Abrir la conexion entre el programa y la base de datos 
                 // query para ingresar
                 string sql = $@"select rol from tblUser where email='{user}' and password='{password}'"; 
-                NpgsqlCommand cmd = new NpgsqlCommand(sql, cone); //Validar conexion y la funcion del query
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, Db.Connection); //Validar conexion y la funcion del query
                 NpgsqlDataReader dr = cmd.ExecuteReader();//Guarda el valor retornado
                 //Cierre de la conexion entre el programa y la base de datos
                 while (dr.Read())
@@ -72,7 +72,7 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Models
                    id.Text = dr["rol"].ToString();
                     
                 }
-                cone.Close();
+                Db.Connection.Close();
                 
 
             }
@@ -82,17 +82,17 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Models
             }
         }
         //metodo para cambio de password(contraseña)
-        public static bool ChangePassword(string email, string password)
+        public bool ChangePassword(string email, string password)
         {
             
             try
             {
-                cone.Open(); //Abrir la conexion entre el programa y la base de datos 
+                Db.Connection.Open(); //Abrir la conexion entre el programa y la base de datos 
                 string sql = $@"update tblUser set password='{password}' where email='{email}'"; // Es ejecución del funcion en la base de datos 
-                NpgsqlCommand cmd = new NpgsqlCommand(sql, cone); //Validar conexion y la funcion del query
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, Db.Connection); //Validar conexion y la funcion del query
                 int result = Convert.ToInt32(cmd.ExecuteNonQuery());//Guarda el valor retornado
                 sql = $@"update tblUser set password=md5(password)";
-                cone.Close();//Cierre de la conexion entre el programa y la base de datos
+                Db.Connection.Close();//Cierre de la conexion entre el programa y la base de datos
                 if (result == 1)
                 {
 

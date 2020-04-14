@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Final_poo_Espejo_Ramirez_Rincon.Models
+namespace Final_poo_Espejo_Ramirez_Rincon.Controllers
 {
     //nos permite realizar la conexion entre el programa y la base de datos.
     public abstract class clsModel

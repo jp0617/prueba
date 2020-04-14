@@ -103,11 +103,11 @@
     <Reference Include="UIAutomationProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Encrypt.cs" />
+    <Compile Include="Models\Encrypt.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Models\clsAdmin.cs" />
-    <Compile Include="Models\clsMovies.cs" />
-    <Compile Include="Models\clsUser.cs" />
+    <Compile Include="Controllers\clsAdmin.cs" />
+    <Compile Include="Controllers\clsMovies.cs" />
+    <Compile Include="Controllers\clsUser.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,8 +126,8 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\clsDatabase.cs" />
-    <Compile Include="Models\clsModel.cs" />
-    <Compile Include="Models\clsLogin.cs" />
+    <Compile Include="Controllers\clsModel.cs" />
+    <Compile Include="Controllers\clsLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Views\Buy.cs">
       <SubType>Form</SubType>

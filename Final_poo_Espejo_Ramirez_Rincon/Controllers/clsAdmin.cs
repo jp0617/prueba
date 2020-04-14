@@ -6,7 +6,7 @@ using System;
 using System.IO;
 using System.Drawing;
 
-namespace Final_poo_Espejo_Ramirez_Rincon.Models
+namespace Final_poo_Espejo_Ramirez_Rincon.Controllers
 {
     class clsAdmin : clsModel
     {

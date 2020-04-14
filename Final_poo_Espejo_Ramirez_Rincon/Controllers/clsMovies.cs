@@ -7,7 +7,7 @@ using System.Drawing;
 
 
 
-namespace Final_poo_Espejo_Ramirez_Rincon.Models
+namespace Final_poo_Espejo_Ramirez_Rincon.Controllers
 {
     //hacemos la conexion del programa a la base de datos.
     public class clsMovies : clsModel

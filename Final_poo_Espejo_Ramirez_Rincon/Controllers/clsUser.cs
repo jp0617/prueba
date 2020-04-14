@@ -3,7 +3,7 @@ using Final_poo_Espejo_Ramirez_Rincon.Controllers;
 using System.Windows.Forms;
 using Npgsql;
 
-namespace Final_poo_Espejo_Ramirez_Rincon.Models
+namespace Final_poo_Espejo_Ramirez_Rincon.Controllers
 {
     
 

@@ -2,14 +2,15 @@
 using System.Windows.Forms;
 using Final_poo_Espejo_Ramirez_Rincon.Classes;
 using Final_poo_Espejo_Ramirez_Rincon.Controllers;
-using Final_poo_Espejo_Ramirez_Rincon.Models;
+
 
 namespace Final_poo_Espejo_Ramirez_Rincon.Views
 {
     public partial class frmHome : MaterialSkin.Controls.MaterialForm //Referenciamos al material skin formularios
     {
         //Hacemos referencia al controlador de usuario
-        UserController login;
+        clsAdmin admin = new clsAdmin();
+
          
         /*
          * Realizado por :
@@ -20,7 +21,7 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
 
         public frmHome()
         {
-            login = new UserController();
+            
             InitializeComponent();
         }
 
@@ -53,6 +54,7 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
 
         private void lblLogin2_Click(object sender, EventArgs e)
         {
+            /*
             //Mandamos al controlador el correo y la contraseña 
             login.Email = txtEmail.Text;
             login.Password = txtPassword.Text;
@@ -82,14 +84,15 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
             //Limpiamos el correo y la contraseña
             txtEmail.Text = "";
             txtPassword.Text = "";
+            */
         }
 
         private void lblLogout_Click(object sender, EventArgs e)
         {
             //Oculta un panel salir y comprar, y abre el panel inicio, el correo y la contraseña
             pnlLogout.Visible = false;
-            login.Email = "";
-            login.Password = "";
+            //login.Email = "";
+            //login.Password = "";
             lblBuy.Visible = false;
             pnlHome.Visible = true;
 
@@ -109,6 +112,7 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
 
         private void lblUpdate_Click(object sender, EventArgs e)
         {
+            /*
             //Validamos de que las contraseñas ingresadas sean iguales
             if (txtPasswordvalidate.Text==txtPasswordvalidate2.Text)
             {
@@ -124,6 +128,7 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
                     pnlUpdate.Visible = false;
                 }
             }
+            */
         }
 
         private void lblBackf_Click(object sender, EventArgs e)
@@ -152,19 +157,21 @@ namespace Final_poo_Espejo_Ramirez_Rincon.Views
 
                 } else {
 
+                /*
                 //Mandamos los datos al controlador 
                 login.Name = txtNames.Text;
                 login.Last_name = txtSurname.Text;
                 login.Dni = txtDNI.Text;
                 login.Email = txtEmail2.Text;
                 login.Password = txtPasswords.Text;
+                */
                 //Hacemos referencia a la clase encriptar con el parametro contraseña
-                string cadenaencriptada = encrypt.GetMD5(login.Password);
+               // string cadenaencriptada = encrypt.GetMD5(login.Password);
                 //Validamos que el email no se encuentre en la base de datos
-                if (clsUser.tryemail(login.Email) == true)
+                if (clsUser.tryemail(login.Email) == true)//Cambiar
                 {
                     //Validamos que si se pudieron insertar los datos
-                    if (clsUser.tryregistro(login.Name, login.Last_name, login.Dni, login.Email, cadenaencriptada) == true)
+                    if (clsUser.tryregistro(login.Name, login.Last_name, login.Dni, login.Email, cadenaencriptada) == true) //Cambiar
                     {
                         //Mensaje de confirmación
                         MessageBox.Show("Signed up successful");
